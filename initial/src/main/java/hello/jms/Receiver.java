@@ -1,6 +1,5 @@
 package hello.jms;
 
-import hello.utils.ReceiversConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.jms.annotation.JmsListener;
@@ -9,8 +8,10 @@ import org.springframework.util.FileSystemUtils;
 
 import java.io.File;
 
+import static hello.utils.ReceiversConstants.MAILBOX_DESTINATION;
+
 @Component
-public class Receiver implements ReceiversConstants {
+public class Receiver {
 
     /**
      * Get a copy of the application context
@@ -19,8 +20,8 @@ public class Receiver implements ReceiversConstants {
     ConfigurableApplicationContext context;
 
     /**
-     * When you receive a message, print it out, then shut down the application.
-     * Finally, clean up any ActiveMQ server stuff.
+     * When you receive a message, print it out, then shut down the application. Finally, clean up any ActiveMQ server
+     * stuff.
      */
     @JmsListener(destination = MAILBOX_DESTINATION, containerFactory = "myJmsContainerFactory")
     public void receiveMessage(String message) {
