@@ -24,6 +24,6 @@ public class PingRest {
     @ResponseBody
     public String ping(@RequestParam(name = "who", defaultValue = "Anonymous") final String who) {
         pingProducer.doPing(who);
-        return "the was sent, wait for the receiver";
+        return "the ping was sent, wait for the receiver";
     }
 }
