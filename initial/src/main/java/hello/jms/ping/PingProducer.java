@@ -19,9 +19,9 @@ public class PingProducer {
     @Autowired
     private JmsTemplate jmsTemplate;
 
-    public void doPing() {
+    public void doPing(final String whoPings) {
         final MessageCreator messageCreator = (session) -> {
-            return session.createTextMessage("ping!");
+            return session.createTextMessage(String.format("ping from: %s!", whoPings));
         };
         System.out.println("Sending a new message.");
         jmsTemplate.send(MAILBOX_DESTINATION, messageCreator);

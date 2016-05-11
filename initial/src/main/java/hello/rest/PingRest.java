@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -21,8 +22,8 @@ public class PingRest {
 
     @RequestMapping(value = "/ping", method = RequestMethod.GET)
     @ResponseBody
-    public String ping() {
-        pingProducer.doPing();
+    public String ping(@RequestParam(name = "who", defaultValue = "Anonymous") final String who) {
+        pingProducer.doPing(who);
         return "the was sent, wait for the receiver";
     }
 }
