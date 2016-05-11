@@ -14,7 +14,7 @@ import org.springframework.util.FileSystemUtils;
 import javax.jms.ConnectionFactory;
 import java.io.File;
 
-import static hello.ReceiversConstants.MAILBOX_DESTINATION;
+import static hello.utils.ReceiversConstants.MAILBOX_DESTINATION;
 
 @SpringBootApplication
 @EnableJms

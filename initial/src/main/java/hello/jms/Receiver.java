@@ -1,5 +1,6 @@
-package hello;
+package hello.jms;
 
+import hello.utils.ReceiversConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.jms.annotation.JmsListener;
