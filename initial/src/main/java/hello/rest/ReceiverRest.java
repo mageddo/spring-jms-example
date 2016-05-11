@@ -31,6 +31,7 @@ public class ReceiverRest {
         };
         System.out.println("Sending a new message.");
         jmsTemplate.send(MAILBOX_DESTINATION, messageCreator);
+        System.out.println("closed!");
         return "ok";
     }
 }
