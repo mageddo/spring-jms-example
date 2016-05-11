@@ -9,7 +9,7 @@ import org.springframework.util.FileSystemUtils;
 import java.io.File;
 
 @Component
-public class Receiver {
+public class Receiver implements ReceiversConstants {
 
     /**
      * Get a copy of the application context
@@ -21,7 +21,7 @@ public class Receiver {
      * When you receive a message, print it out, then shut down the application.
      * Finally, clean up any ActiveMQ server stuff.
      */
-    @JmsListener(destination = "mailbox-destination", containerFactory = "myJmsContainerFactory")
+    @JmsListener(destination = MAILBOX_DESTINATION, containerFactory = "myJmsContainerFactory")
     public void receiveMessage(String message) {
         System.out.println("Received <" + message + ">");
         context.close();

@@ -14,6 +14,8 @@ import org.springframework.util.FileSystemUtils;
 import javax.jms.ConnectionFactory;
 import java.io.File;
 
+import static hello.ReceiversConstants.MAILBOX_DESTINATION;
+
 @SpringBootApplication
 @EnableJms
 public class Application {
@@ -39,7 +41,7 @@ public class Application {
         };
         JmsTemplate jmsTemplate = context.getBean(JmsTemplate.class);
         System.out.println("Sending a new message.");
-        jmsTemplate.send("mailbox-destination", messageCreator);
+        jmsTemplate.send(MAILBOX_DESTINATION, messageCreator);
     }
 
 }
