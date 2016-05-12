@@ -16,7 +16,7 @@ public class PingReceiver {
 	 * When you receive a message, print it out, then shut down the application. Finally, clean up any ActiveMQ server
 	 * stuff.
 	 */
-	@JmsListener(destination = MAILBOX_DESTINATION, containerFactory = "myJmsContainerFactory")
+	@JmsListener(destination = MAILBOX_DESTINATION, containerFactory = "defaultFactory")
 	public void receiveMessage(String message) {
 
 		++ID;
