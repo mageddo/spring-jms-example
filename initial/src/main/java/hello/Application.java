@@ -1,5 +1,8 @@
 package hello;
 
+import javax.jms.ConnectionFactory;
+import java.io.File;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -7,12 +10,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.config.JmsListenerContainerFactory;
 import org.springframework.jms.config.SimpleJmsListenerContainerFactory;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.util.FileSystemUtils;
 
-import javax.jms.ConnectionFactory;
-import java.io.File;
-
 @SpringBootApplication
+@EnableScheduling
 @EnableJms
 @ComponentScan
 public class Application {
