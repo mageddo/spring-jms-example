@@ -1,4 +1,4 @@
-package hello.jms.ping;
+package hello.jms;
 
 import static hello.utils.ReceiversConstants.MAILBOX_DESTINATION;
 

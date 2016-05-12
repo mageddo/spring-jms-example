@@ -1,4 +1,4 @@
-package hello.jms.ping;
+package hello.jms;
 
 import hello.bean.MoneyTransaction;
 import hello.utils.ReceiversConstants;
