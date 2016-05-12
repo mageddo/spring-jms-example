@@ -19,19 +19,19 @@ import org.springframework.util.FileSystemUtils;
 @ComponentScan
 public class Application {
 
-    // Strictly speaking this bean is not necessary as boot creates a default
-    @Bean
-    JmsListenerContainerFactory<?> myJmsContainerFactory(ConnectionFactory connectionFactory) {
-        SimpleJmsListenerContainerFactory factory = new SimpleJmsListenerContainerFactory();
-        factory.setConnectionFactory(connectionFactory);
-        return factory;
-    }
+	// Strictly speaking this bean is not necessary as boot creates a default
+	@Bean
+	JmsListenerContainerFactory<?> myJmsContainerFactory(ConnectionFactory connectionFactory) {
+		SimpleJmsListenerContainerFactory factory = new SimpleJmsListenerContainerFactory();
+		factory.setConnectionFactory(connectionFactory);
+		return factory;
+	}
 
-    public static void main(String[] args) {
-        // Clean out any ActiveMQ data from a previous run
-        FileSystemUtils.deleteRecursively(new File("activemq-data"));
-        SpringApplication.run(Application.class, args);
-        System.out.println("system is up!!");
-    }
+	public static void main(String[] args) {
+		// Clean out any ActiveMQ data from a previous run
+		FileSystemUtils.deleteRecursively(new File("activemq-data"));
+		SpringApplication.run(Application.class, args);
+		System.out.println("system is up!!");
+	}
 
 }
