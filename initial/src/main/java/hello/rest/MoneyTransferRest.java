@@ -16,7 +16,7 @@ public class MoneyTransferRest {
 
 	@RequestMapping(value = "/user/{name}/transfer", method = RequestMethod.POST)
 	public @ResponseBody void doTransfer(final @RequestBody MoneyTransaction moneyTransaction,
-			 final @PathVariable String senderName){
+			 final @PathVariable("name") String senderName){
 
 		moneyTransaction.setSender(senderName);
 		moneyTransferProducer.doTransfer(moneyTransaction);

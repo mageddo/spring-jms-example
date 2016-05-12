@@ -1,6 +1,7 @@
 package hello.rest;
 
 import com.jayway.restassured.RestAssured;
+import com.jayway.restassured.http.ContentType;
 import hello.Application;
 import hello.bean.MoneyTransaction;
 import org.junit.Test;
@@ -17,7 +18,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 //@WebAppConfiguration
 @SpringApplicationConfiguration(Application.class)
-@WebIntegrationTest
+@WebIntegrationTest("server.port:0")
 public class MoneyTransferRestTest {
 
 	@Value("${local.server.port}")
@@ -34,7 +35,9 @@ public class MoneyTransferRestTest {
 
 		RestAssured.given() //
 				.pathParam("name", "Elvis")
+				.contentType(ContentType.JSON)
 				.body(transaction) //
+				.log().all()
 				.when().post("/user/{name}/transfer") //
 				.then().statusCode(200);
 	}
