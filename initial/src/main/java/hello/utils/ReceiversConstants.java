@@ -8,4 +8,5 @@ package hello.utils;
  */
 public interface ReceiversConstants {
 	String MAILBOX_DESTINATION = "mailbox-destination";
+	String MONEY_TRANSFER_DESTINATION = "MoneyTransferReceiver";
 }
